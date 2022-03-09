@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard.dashboard')
 
 @section('title')
     CodeMate | Profile
@@ -30,14 +30,22 @@
 
 @section('content')
         {{-- Profile details --}}
-        <div class="container mt-5">
+        <div class="profile">
+
+        <div>
+@endsection
+
+@section('scripts')
+    <script>
+        $('.profile').append(`
+            <div class="container mt-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-9">
                     <div class="card p-3 py-4">
-                        <div class="text-center"> <img src="{{ asset('images/profile.png'); }}" width="100"
-                                class="rounded-circle"> </div>
+                        <div class="text-center"> <img src="{{ asset('images/profile.png') }}" width="100"
+                                                       class="rounded-circle"> </div>
                         <div class="text-center mt-3">
-                            <h5 class="mt-2 mb-0">Tushar Budhwani</h5> <span>Front-end Engineer</span>
+                            <h5 class="mt-2 mb-0">{{ $user->github_username }}</h5> <span>Front-end Engineer</span>
                             <div class="px-4 mt-1">
                                 <p class="fonts">Here we are putting headlines like linkedIn. eg.
                                     CEO at META.
@@ -64,30 +72,32 @@
 
         {{-- Projects --}}
         <div class="container mt-5">
-            <div class="row d-flex justify-content-center ">
-                <div class="col-md-9">
-                    <div class="card p-3">
-                        <h2>Projects</h2>
-                        <div class="list border-bottom p-3">
-                            <div class="d-flex flex-column ml-3 font-weight-600"><h4>Foodie</h4></div>
-                        </div>
-                        <div class="list border-bottom p-3">
-                            <div class="d-flex flex-column ml-3 font-weight-600"> <h4>Foodie</h4></div>
-                        </div>
-                        <div class="list p-3 border-bottom">
-                            <div class="d-flex flex-column ml-3 font-weight-600"> <h4>Offensive Web Application Security Framework</h4></div>
-                        </div>
-                        <div class="list border-bottom p-3">
-                            <div class="d-flex flex-column ml-3 font-weight-600"><h4>Foodie</h4></div>
-                        </div>
-                        <div class="list border-bottom p-3">
-                            <div class="d-flex flex-column ml-3 font-weight-600"> <h4>Foodie</h4></div>
-                        </div>
-                        <div class="list p-3 border-bottom">
-                            <div class="d-flex flex-column ml-3 font-weight-600"> <h4>Offensive Web Application Security Framework</h4></div>
-                        </div>
+        <div class="row d-flex justify-content-center ">
+            <div class="col-md-9">
+                <div class="card p-3">
+                    <h2>Projects</h2>
+                    <div class="list border-bottom p-3">
+                        <div class="d-flex flex-column ml-3 font-weight-600"><h4>Foodie</h4></div>
+                    </div>
+                    <div class="list border-bottom p-3">
+                        <div class="d-flex flex-column ml-3 font-weight-600"> <h4>Foodie</h4></div>
+                    </div>
+                    <div class="list p-3 border-bottom">
+                        <div class="d-flex flex-column ml-3 font-weight-600"> <h4>Offensive Web Application Security Framework</h4></div>
+                    </div>
+                    <div class="list border-bottom p-3">
+                        <div class="d-flex flex-column ml-3 font-weight-600"><h4>Foodie</h4></div>
+                    </div>
+                    <div class="list border-bottom p-3">
+                        <div class="d-flex flex-column ml-3 font-weight-600"> <h4>Foodie</h4></div>
+                    </div>
+                    <div class="list p-3 border-bottom">
+                        <div class="d-flex flex-column ml-3 font-weight-600"> <h4>Offensive Web Application Security Framework</h4></div>
                     </div>
                 </div>
             </div>
         </div>
-    @endsection
+        </div>
+        `);
+    </script>
+@endsection
