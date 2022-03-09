@@ -28,6 +28,20 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Projects</span></a>
     </li>
+
+    <!-- Nav Item - Suggested Projects -->
+    <li class="nav-item @if (request()->is('projects/suggested')) active @endif">
+        <a class="nav-link" href="{{ route('projects.suggested') }}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Suggested Projects</span></a>
+    </li>
+
+    <!-- Nav Item - Suggested Users -->
+    <li class="nav-item @if (request()->is('users/suggested')) active @endif">
+        <a class="nav-link" href="{{ route('users.suggested') }}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Suggested Users</span></a>
+    </li>
     <!-- Heading -->
     <div class="sidebar-heading">
         Interface

@@ -40,6 +40,16 @@ Route::get('projects', function() {
     return view('projects.index', compact(['user']));
 })->name('projects.index');
 
+Route::get('projects/suggested', function () {
+    $user = User::findOrFail(auth()->id());
+    return view('projects.suggested', compact(['user']));
+})->name('projects.suggested');
+
+Route::get('users/suggested', function () {
+    $user = User::findOrFail(auth()->id());
+    return view('users.suggested', compact(['user']));
+})->name('users.suggested');
+
 Route::get('profile', function (){
     $user = User::findOrFail(auth()->id());
     return view('profile.index', compact(['user']));

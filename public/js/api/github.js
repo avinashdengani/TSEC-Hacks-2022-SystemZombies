@@ -135,4 +135,14 @@ function getUserSuggestionsAccordingToCommitStyle(users) {
     return passedUsers;
 }
 
+function getSuggestedProjects(username, page = 1, per_page = 2, links = false) {
+    let languages = getLanguagesUsedByUser(username);
+    let random = Math.floor(Math.random() * languages.length);
+    let sub_url = `search/repositories?q=${languages[random]}?page=${page}&per_page=${per_page}`;
+
+    let suggestedProjects = ajaxFunction(base_url + sub_url);
+
+    return suggestedProjects;
+}
+
 // console.log(getUserSuggestionsAccordingToCommitMessages("krishanadave617"));
