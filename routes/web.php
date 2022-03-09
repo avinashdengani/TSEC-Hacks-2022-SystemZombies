@@ -40,7 +40,7 @@ Route::get('projects', function() {
     return view('projects.index', compact(['user']));
 })->name('projects.index');
 
-Route::get('profile', function (){
-    $user = User::findOrFail(auth()->id());
+Route::get('profile/{user_id}', function ($user_id){
+    $user = User::findOrFail($user_id);
     return view('profile.index', compact(['user']));
 })->name('profile.index');
