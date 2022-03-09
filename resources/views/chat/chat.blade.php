@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Chats | CodeMate')
+
 @section('styles')
 <style>
     body{
