@@ -39,3 +39,8 @@ Route::get('projects', function() {
     $user = User::findOrFail(auth()->id());
     return view('projects.index', compact(['user']));
 })->name('projects.index');
+
+Route::get('profile', function (){
+    $user = User::findOrFail(auth()->id());
+    return view('profile.index', compact(['user']));
+})->name('profile.index');
