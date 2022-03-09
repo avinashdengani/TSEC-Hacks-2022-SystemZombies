@@ -6,3 +6,22 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+//Mixins
+@import "mixins";
+
+//ANIMATE.CSS
+@import url("~animate.css/animate.css");
+
+//OWL CAROUSEL
+@import url("~owl.carousel/dist/assets/owl.carousel.css");
+@import url("~owl.carousel/dist/assets/owl.theme.default.css");
+
+//Select2
+@import url("~select2/dist/css/select2.css");
+
+/* SELECTION COLOR */
+::selection {
+    background: #78e4ff;
+    color: #333;
+}
