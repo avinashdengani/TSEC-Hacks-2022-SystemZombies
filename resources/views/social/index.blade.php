@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'User Registeration | CodeMate')
+@section('title', 'Social Info | CodeMate')
 
 @section('content')
     <div class="container">
@@ -17,49 +17,6 @@
 
                             </div>
                             <div class="col-md-6 content p-5">
-                                <div class="form-group row">
-
-                                    <div class="col-md-12">
-
-                                        <h2 class="mb-4 font-weight-bolder d-flex justify-content-center">Register</h2>
-
-                                        <input
-                                            id="name"
-                                            type="text"
-                                            class="form-control @error('name') is-invalid @enderror user-select-none mb-3"
-                                            name="name"
-                                            placeholder="Enter you name"
-                                            value="{{ old('name') }}"
-                                            autocomplete="name"
-                                            autofocus>
-
-                                        @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-
-                                    <div class="col-md-12">
-                                        <input
-                                                id="email"
-                                                type="email"
-                                                class="form-control @error('email') is-invalid @enderror user-select-none mb-3"
-                                                name="email"
-                                                placeholder="Enter you email"
-                                                value="{{ old('email') }}"
-                                                autocomplete="email">
-
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
 
                                 <div class="form-group row">
 
@@ -93,27 +50,81 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-12">
-                                        <label for="github_username"><i class="fa fa-lg m-2 fa-github"></i> GitHub Username</label>
-                                        <input
-                                            id="github_username"
-                                            type="text"
-                                            class="form-control @error('github_username') is-invalid @enderror user-select-none mb-3"
-                                            name="github_username"
-                                            placeholder="Enter you GitHub username"
-                                            value="{{ old('github_username') }}"
-                                            autocomplete="github_username"
-                                            autofocus>
 
-                                        @error('github_username')
+                                    <div class="col-md-12">
+                                        <label for="linkedin_link"> <i class="fa fa-lg m-2 fa-linkedin text-primary"></i> Linkedin Link</label>
+                                        <input
+                                                id="linkedin_link"
+                                                class="form-control @error('linkedin_link') is-invalid @enderror user-select-none mb-3"
+                                                name="linkedin_link"
+                                                placeholder="Enter you Linkedin link"
+                                                value="{{ old('linkedin_link') }}"
+                                                autocomplete="linkedin_link">
+
+                                        @error('linkedin_link')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group row">
 
+                                    <div class="col-md-12">
+                                        <label for="twitter_link"> <i class="fa fa-lg m-2 fa-twitter text-primary"></i> Twitter Link</label>
+                                        <input
+                                                id="twitter_link"
+                                                class="form-control @error('twitter_link') is-invalid @enderror user-select-none mb-3"
+                                                name="twitter_link"
+                                                placeholder="Enter you Twitter link"
+                                                value="{{ old('twitter_link') }}"
+                                                autocomplete="twitter_link">
 
+                                        @error('twitter_link')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <div class="col-md-12">
+                                        <label for="instagram_link"> <i class="fa fa-lg m-2 fa-instagram text-danger"></i> Instagram Link</label>
+                                        <input
+                                                id="instagram_link"
+                                                class="form-control @error('instagram_link') is-invalid @enderror user-select-none mb-3"
+                                                name="instagram_link"
+                                                placeholder="Enter you Instagram link"
+                                                value="{{ old('instagram_link') }}"
+                                                autocomplete="instagram_link">
+
+                                        @error('instagram_link')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <div class="col-md-12">
+                                        <label for="facebook_link"> <i class="fa fa-lg m-2 fa-facebook text-primary"></i> Facebook Link</label>
+                                        <input
+                                                id="facebook_link"
+                                                class="form-control @error('facebook_link') is-invalid @enderror user-select-none mb-3"
+                                                name="facebook_link"
+                                                placeholder="Enter you Facebook link"
+                                                value="{{ old('facebook_link') }}"
+                                                autocomplete="facebook_link">
+
+                                        @error('facebook_link')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="form-group row mb-0">
                                     <div class="col-md-12 d-flex justify-content-between m-0 ">
                                         <button type="submit" class="btn btn-success">

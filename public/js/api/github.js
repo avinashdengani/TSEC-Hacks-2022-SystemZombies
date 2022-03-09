@@ -47,7 +47,7 @@ function getCommitMessages(username, repo_name) {
         commitMessages.push(commit["commit"]["message"]);
     });
 
-    return commitMessages.reverse();
+    return commitMessages;
 }
 
 function getLanguages(username, repo_name) {

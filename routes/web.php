@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,10 +26,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::get('dashboard', function() {
+    $user = User::findOrFail(auth()->id());
+    return view('dashboard', compact(['user']));
+})->name('dashboard');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('projects', function() {
+    $user = User::findOrFail(auth()->id());
+    return view('projects.index', compact(['user']));
+})->name('projects.index');
