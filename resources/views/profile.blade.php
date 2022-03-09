@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-CodeMate | Dashboard
+CodeMate | Profile
 @endsection
 
 @section('content')
