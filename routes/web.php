@@ -21,6 +21,10 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
+Route::get('/chats', function () {
+    return view('chat.chat');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
