@@ -10,4 +10,9 @@ class Language extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function user(){
+        return $this->belongsToMany(User::class);
+    }
 }
+
