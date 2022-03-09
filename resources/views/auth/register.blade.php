@@ -42,6 +42,46 @@
                                 </div>
 
                                 <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <input
+                                            id="job_title"
+                                            type="text"
+                                            class="form-control @error('job_title') is-invalid @enderror user-select-none mb-3"
+                                            name="job_title"
+                                            placeholder="Enter your Job Title"
+                                            value="{{ old('job_title') }}"
+                                            autocomplete="job_title"
+                                            autofocus>
+
+                                        @error('job_title')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <input
+                                            id="headline"
+                                            type="text"
+                                            class="form-control @error('headline') is-invalid @enderror user-select-none mb-3"
+                                            name="headline"
+                                            placeholder="Enter your Headline"
+                                            value="{{ old('headline') }}"
+                                            autocomplete="headline"
+                                            autofocus>
+
+                                        @error('headline')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
 
                                     <div class="col-md-12">
                                         <input
@@ -113,6 +153,23 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <label for="tech_stack"><i class="fa fa-lg m-2 fa-github"></i>Tech Stack</label>
+                                        <select name="tech_stack" id="tech_stack" class="form-control select2"></select>
+                                        <option value="-1" disabled selected>Select...</option>
+                                        @foreach($languages as $languages)
+                                            <option value="{{ $language->id}}">{{ $language->name }}</option>
+                                        @endforeach
+                                        </select>
+
+                                        @error('tech_stack')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-12 d-flex justify-content-between m-0 ">
