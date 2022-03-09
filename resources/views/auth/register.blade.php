@@ -156,9 +156,8 @@
                                 <div class="form-group row">
                                     <div class="col-md-12">
                                         <label for="tech_stack"><i class="fa fa-lg m-2 fa-github"></i>Tech Stack</label>
-                                        <select name="tech_stack" id="tech_stack" class="form-control select2"></select>
-                                        <option value="-1" disabled selected>Select...</option>
-                                        @foreach($languages as $languages)
+                                        <select name="tech_stacks[]" id="tech_stacks" class="form-control select2" multiple>
+                                        @foreach($languages as $language)
                                             <option value="{{ $language->id}}">{{ $language->name }}</option>
                                         @endforeach
                                         </select>
@@ -191,6 +190,12 @@
 
 @section('scripts')
     <script>
+        
+            $('.select2').select2({
+                placeholder: 'Select an option',
+                id: '-1',
+            });
+        
             $.validator.addMethod('myPasswordPattern', function(value, element) {
             return this.optional(element) || (value.match(/[a-z]/) && value.match(/[0-9]/ && value.match(/[A-Z]/)));
         },

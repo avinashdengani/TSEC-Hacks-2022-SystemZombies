@@ -11,7 +11,7 @@ function ajaxFunction(target) {
             resultJSON = result ?? [];
         },
         error: function (error){
-            console.error("Error in Fetching");
+            resultJSON = [];
         }
     });
     return resultJSON;
@@ -70,7 +70,11 @@ function getCommitMessages(username, repo_name, page, per_page) {
 
 function getLatestCommitMessage(username, repo_name) {
     let sub_url = `repos/${username}/${repo_name}/commits?page=-1&per_page=1`;
-    return ajaxFunction(base_url + sub_url)["commit"]["message"];
+    let data =  ajaxFunction(base_url + sub_url);
+    if(data && data.length > 0){
+        data[0]["commit"]["message"];
+    }
+    return "";
 }
 
 function getLanguages(username, repo_name) {

@@ -53,7 +53,9 @@
 
 @section('content')
 
-<div class="projects">
+<div class="container">
+
+<div class="d-flex justify-content-between" class="projects"></div>
 
 </div>
 
@@ -61,38 +63,34 @@
 
 @section('scripts')
 
-    @include('layouts.dashboard.partials._user-img')
-
     <script>
+        
         let repos = getRepos('{{$user->github_username}}').reverse();
 
         let languages;
         repos.forEach(repo => {
 
-            languages = Object.keys(getLanguages('{{$user->github_username}}', repo.name));
-            let languagesUsed = '';
+            languages = getLanguages('{{$user->github_username}}', repo.name);
 
-            // console.log(languages);
-
-            for(let i=0; i<languages.length; i++) {
-                languagesUsed += `<span class="badge bg-secondary text-white">${languages[i]}</span>`;
-                // console.log(languages[i]);
-            }
+            languagesUsed = "";
+            languages.forEach(language => {
+                languagesUsed += `<span class="badge bg-secondary text-white m-1">${language}</span>`;
+            });
 
             $(".projects").append(`
                 <div class="row d-flex">
-                    <div class="col-md-6">
+                    <div class="col-md-3 mb-4">
                         <div class="card p-3 py-4">
                             <div class="text-center mt-3">
-                                <h5 class="mt-2 mb-0">${repo.name}</h5>
+                                <h3 class="mt-2 mb-0">${repo.name}</h3>
                                 <div class="px-4 mt-1">
                                     <strong>Your last Commit was: </strong>
-                                    <p class="fonts">${getCommitMessages('{{$user->github_username}}', repo.name)[0]}
+                                    <p class="fonts">${getLatestCommitMessage('{{$user->github_username}}', repo.name)}
                                     </p>
                                     <div class="container"> Teck Stacks Used
                                         ${languagesUsed}
                                     </div>
-                                    created_at:${moment(repo.created_at, "YYYY-MM-DD").fromNow()}
+                                    date of creation:${moment(repo.created_at, "YYYY-MM-DD").fromNow()}
                                 </div>
                             </div>
                         </div>
