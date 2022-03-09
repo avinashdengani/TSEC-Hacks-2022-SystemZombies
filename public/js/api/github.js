@@ -72,7 +72,7 @@ function getLatestCommitMessage(username, repo_name) {
     let sub_url = `repos/${username}/${repo_name}/commits?page=-1&per_page=1`;
     let data =  ajaxFunction(base_url + sub_url);
     if(data && data.length > 0){
-        data[0]["commit"]["message"];
+        return data[0]["commit"]["message"];
     }
     return "";
 }
@@ -106,7 +106,7 @@ function getUserSuggestionsAccordingToLanguages(username, page = 1, per_page = 2
 
     let commonUsers = [];
     commonUsersJSON['items'].forEach((commonUser) => {
-        if(links) 
+        if(links)
             commonUsers.push(commonUser["owner"]["html_url"]);
         else
             commonUsers.push(commonUser["owner"]["login"]);
@@ -123,7 +123,7 @@ function getColonStyleCommitScore(username) {
             count++;
         }
     });
-    return (count/len) > 0.6;  
+    return (count/len) > 0.6;
 }
 
 function getUserSuggestionsAccordingToCommitStyle(users) {
@@ -136,3 +136,4 @@ function getUserSuggestionsAccordingToCommitStyle(users) {
 }
 
 // console.log(getUserSuggestionsAccordingToCommitMessages("krishanadave617"));
+
