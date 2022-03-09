@@ -1,4 +1,6 @@
 <script src="{{ asset('js/api/github.js') }}"></script>
 <script>
-    $('#user-img').attr('src', getAvatar('{{$user->github_username}}'));
+    @auth
+        $('.img-profile').attr('src', getAvatar('{{auth()->user()->github_username}}'));
+    @endauth
 </script>

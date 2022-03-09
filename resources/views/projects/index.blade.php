@@ -53,10 +53,21 @@
 
 @section('content')
 
-<div class="container">
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="">
+          <div class="card-body">
+            <h3 class="card-title">Projects</h3>
+            <div class="container">
+                <div id="projects" class="d-flex flex-row col-md-12">
 
-<div class="d-flex justify-content-between" class="projects"></div>
-
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 
 @endsection
@@ -64,33 +75,27 @@
 @section('scripts')
 
     <script>
-        
-        let repos = getRepos('{{$user->github_username}}').reverse();
 
+        let repos = getRepos('{{$user->github_username}}').reverse();
         let languages;
         repos.forEach(repo => {
-
             languages = getLanguages('{{$user->github_username}}', repo.name);
 
             languagesUsed = "";
             languages.forEach(language => {
                 languagesUsed += `<span class="badge bg-secondary text-white m-1">${language}</span>`;
             });
-
-            $(".projects").append(`
-                <div class="row d-flex">
-                    <div class="col-md-3 mb-4">
-                        <div class="card p-3 py-4">
-                            <div class="text-center mt-3">
-                                <h3 class="mt-2 mb-0">${repo.name}</h3>
-                                <div class="px-4 mt-1">
-                                    <strong>Your last Commit was: </strong>
-                                    <p class="fonts">${getLatestCommitMessage('{{$user->github_username}}', repo.name)}
-                                    </p>
-                                    <div class="container"> Teck Stacks Used
-                                        ${languagesUsed}
-                                    </div>
-                                    date of creation:${moment(repo.created_at, "YYYY-MM-DD").fromNow()}
+            $("#projects").append(`
+                <div class="card col-md-3">
+                    <div class="">
+                        <div class="text-center mt-3">
+                            <h3 class="mt-2 mb-0">${repo.name}</h3>
+                            <div class="px-4 mt-1">
+                                <strong>Your last Commit was: </strong>
+                                <p class="fonts">${getLatestCommitMessage('{{$user->github_username}}', repo.name)}
+                                </p>
+                                <div class="container"> Teck Stacks Used
+                                    ${languagesUsed}
                                 </div>
                             </div>
                         </div>

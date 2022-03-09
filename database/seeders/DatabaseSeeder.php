@@ -2,9 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Language;
+use App\Models\Tag;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,8 +20,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
+        User::create([
+            'name' => 'Sandeep Ahuja',
+            'email' => 'sandeepahuja@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10),
+            'job_title' => 'Frontend Developer',
+            'headline' => 'Student at TSEC',
+            'github_username' => 'avinashdengani'
+        ]);
         $languages = [
             "ABAP",
             "ActionScript",
@@ -169,9 +183,25 @@ class DatabaseSeeder extends Seeder
             "Xaraya",
         ];
 
+        $categories = ["Artificial intelligence", "Big Data", "Blockchain", "Web Development", "Machine Learning", "Data Science", "Cyber Security", "Virtual Reality", "REST", "CRUD", "Cryptography", "Compiler Design", "System Security", "Operating System", "Others"];
+
         foreach($languages as $lang) {
             Language::create([
                 'name' => $lang
+            ]);
+
+            Tag::create([
+                'name' => $lang
+            ]);
+        }
+
+        foreach($categories as $categoryName) {
+            Category::create([
+                'name' => $categoryName
+            ]);
+
+            Tag::create([
+                'name' => $categoryName
             ]);
         }
     }
