@@ -20,11 +20,12 @@ Route::get('/', function () {
 
 Route::get('/profile', function () {
     return view('profile');
-});
+})->middleware('auth');
+
 
 Route::get('/chats', function () {
     return view('chat.chat');
-});
+})->middleware('auth');
 
 Auth::routes();
 
@@ -33,14 +34,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('dashboard', function() {
     $user = User::findOrFail(auth()->id());
     return view('dashboard', compact(['user']));
-})->name('dashboard');
+})->name('dashboard')->middleware('auth');
+
 
 Route::get('projects', function() {
     $user = User::findOrFail(auth()->id());
     return view('projects.index', compact(['user']));
-})->name('projects.index');
+})->name('projects.index')->middleware('auth');
+
 
 Route::get('profile/{user_id}', function ($user_id){
     $user = User::findOrFail($user_id);
     return view('profile.index', compact(['user']));
-})->name('profile.index');
+})->name('profile.index')->middleware('auth');
