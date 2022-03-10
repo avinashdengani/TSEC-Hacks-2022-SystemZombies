@@ -5,8 +5,8 @@
 @section('styles')
     <style>
         .card-img-top {
-            width: 20%;
-            height: 20%;
+            width: 8%;
+            height: 8%;
             object-fit: cover;
         }
     </style>
@@ -40,7 +40,7 @@
 
 <script>
 
-    let langUsers = getUserSuggestionsAccordingToLanguages(`{{ $user->github_username }}`, 1, 20);
+    let langUsers = getUserSuggestionsAccordingToLanguages(`{{ $user->github_username }}`, 1, 10);
     let commitLangUsers = getUserSuggestionsAccordingToCommitStyle(langUsers);
 
 
@@ -48,8 +48,8 @@
     // console.log(langUsers);
     // console.log(commitLangUsers);
 
-    console.log(getUser(langUsers[0]));
-    console.log(ajaxFunction(base_url + `users/${langUsers[0]}`));
+    // console.log(getUser(langUsers[0]));
+    // console.log(ajaxFunction(base_url + `users/${langUsers[0]}`));
 
     if (commitLangUsers && commitLangUsers.length > 0) {
         $('#users').append(`    
