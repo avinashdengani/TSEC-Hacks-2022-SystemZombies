@@ -46,7 +46,7 @@
     let projects = getSuggestedProjects(`{{ $user->github_username }}`, 1, 20);
 
     console.log(projects['items']);
-    
+
     projects['items'].forEach(project => {
         $('#projects').append(`
 
@@ -54,7 +54,7 @@
             <div class="card-body">
 
                 <div class="card m-2">
-                    
+
                     <div class="card-body d-flex justify-content-between">
                             <img class="card-img-top" src="${project['owner']['avatar_url']}" alt="">
                             <h5>
@@ -62,8 +62,8 @@
                                 ${project['owner']['login']} <i class="text-dark fab fa-github fa-lg"></i>
                                 </a>
                             </h5>
-                        <div class="collabrate">
-                        <button type="button" name="btn-collabrate" id="btn-collabrate" class="btn btn-success btn-lg btn-block">Collabrate</button>                           
+                        <div class="collaborate">
+                        <button type="button" name="btn-collaborate" id="btn-collaborate" class="btn btn-success btn-lg btn-block">Collaborate</button>
                     </div>
                     </div>
                 </div>
@@ -76,31 +76,7 @@
 
         `);
     });
-    
+
 </script>
 
 @endsection
-
-
-{{-- @section()
-<div class="card">
-    <div class="card-body">
-
-        <div class="card">
-            <img class="card-img-top" src="userimage" alt="">
-            <div class="card-body">
-                <h4 class="card-title">
-
-                </h4>
-            </div>
-        </div>
-
-        <h4 class="card-title">
-
-        </h4>
-        <p class="card-text">
-
-        </p>
-    </div>
-</div>  
-@endsection --}}

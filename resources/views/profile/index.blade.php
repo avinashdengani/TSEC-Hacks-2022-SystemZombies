@@ -32,7 +32,7 @@
         {{-- Profile details --}}
 
         <div class="profile">
-            
+
         <div>
 @endsection
 
@@ -43,7 +43,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-9">
                     <div class="card p-3 py-4">
-                        <div class="text-center"> 
+                        <div class="text-center">
                         <img id="profile-img" src="" width="100" class="rounded-circle img-profile"> </div>
                         <div class="text-center mt-3">
                             <h5 class="mt-2 mb-0">{{ $user->name }}</h5> <span>{{ $user->job_title }}</span>
@@ -53,14 +53,18 @@
                                 </p>
                                 <div class="container">
                                     @foreach ($user->languages as $language)
-                                        <span class="badge bg-secondary text-white">{{ $language->name }}</span>    
+                                        <span class="badge bg-secondary text-white">{{ $language->name }}</span>
                                     @endforeach
                                 </div>
                             </div>
 
-                            <div class="p-3">
-                                <button class="btn btn-outline-primary px-4">Message</button>
-                                <button class="btn btn-primary px-4 ms-3">Contact</button>
+                            <div class="p-3 d-flex flex-row justify-content-center">
+                                <a href="https://github.com/{{$user->github_username}}?tab=followers" class="badge bg-secondary text-white m-1 p-2">
+                                    Followers <p class="m-0 p-1"> ${getFollowers( '{{$user->github_username}}').length}</p>
+                                </a>
+                                <a href="https://github.com/{{$user->github_username}}?tab=following" class="badge bg-secondary text-white m-1 p-2">
+                                    Following <p class="m-0 p-1"> ${getFollowing( '{{$user->github_username}}').length}</p>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -89,7 +93,7 @@
                     <a href = "${link}" class="text-dark">
                         <i class="fab fa-github fa-lg"></i>
                     </a>
-                    
+
                 </div>
             `);
         });

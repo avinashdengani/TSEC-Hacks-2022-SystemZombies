@@ -46,12 +46,12 @@ Route::get('projects', function() {
 Route::get('projects/suggested', function () {
     $user = User::findOrFail(auth()->id());
     return view('projects.suggested', compact(['user']));
-})->name('projects.suggested');
+})->name('projects.suggested')->middleware('auth');;
 
 Route::get('users/suggested', function () {
     $user = User::findOrFail(auth()->id());
     return view('users.suggested', compact(['user']));
-})->name('users.suggested');
+})->name('users.suggested')->middleware('auth');
 
 Route::get('profile', function (){
     $user = User::findOrFail(auth()->id());
