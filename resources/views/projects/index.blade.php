@@ -60,8 +60,9 @@
           <div class="card-body">
             <h3 class="card-title">Projects</h3>
             <div class="container">
-                <div id="projects" class="d-flex flex-row col-md-12">
-
+                <div id="" class="d-flex">
+                    <div class="row" id="projects">
+                    </div>
                 </div>
             </div>
           </div>
