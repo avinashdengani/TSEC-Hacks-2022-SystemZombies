@@ -43,7 +43,7 @@
 
 <script>
 
-    let projects = getSuggestedProjects(`{{ $user->github_username }}`, 1, 20);
+    let projects = getSuggestedProjects(`{{ $user->github_username }}`, 1, 10);
 
     console.log(projects['items']);
 

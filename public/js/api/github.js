@@ -22,7 +22,15 @@ function getUser(username) {
     let sub_url = `users/${username}`;
     return ajaxFunction(base_url + sub_url);
 }
+function getFollowers(username) {
+    let sub_url = `users/${username}/followers`;
+    return ajaxFunction(base_url + sub_url);
+}
 
+function getFollowing(username) {
+    let sub_url = `users/${username}/following`;
+    return ajaxFunction(base_url + sub_url);
+}
 
 function getRepos(username, page, per_page) {
     let sub_url = `users/${username}/repos?page=${page}&per_page=${per_page}`;

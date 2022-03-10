@@ -29,8 +29,12 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
             'job_title' => 'Frontend Developer',
             'headline' => 'Student at TSEC',
+            'phone' => '8282882222',
             'github_username' => 'avinashdengani'
         ]);
+
+        User::factory()->count(20)->create();
+
         $languages = [
             "ABAP",
             "ActionScript",

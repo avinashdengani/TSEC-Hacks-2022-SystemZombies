@@ -5,8 +5,8 @@
 @section('styles')
     <style>
         .card-img-top {
-            width: 20%;
-            height: 20%;
+            width: 8%;
+            height: 8%;
             object-fit: cover;
         }
     </style>
