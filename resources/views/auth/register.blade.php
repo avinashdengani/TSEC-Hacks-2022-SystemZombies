@@ -99,6 +99,24 @@
                                             </span>
                                         @enderror
                                     </div>
+
+                                    <div class="col-md-12">
+                                        <input
+                                                id="phone"
+                                                type="number"
+                                                class="form-control @error('phone') is-invalid @enderror user-select-none mb-3"
+                                                name="phone"
+                                                placeholder="Enter Phone No"
+                                                value="{{ old('phone') }}"
+                                                autocomplete="phone">
+
+                                        @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
                                 </div>
 
                                 <div class="form-group row">
@@ -171,7 +189,7 @@
                                 </div>
 
                                 <div class="form-group row mb-0">
-                                    <div class="col-md-12 d-flex justify-content-between m-0 ">
+                                    <div class="col-md-12 d-flex justify-content-between m-0 mt-2">
                                         <button type="submit" class="btn btn-success">
                                             {{ __('Register') }}
                                         </button>
@@ -210,6 +228,16 @@
                     email: {
                         required: true,
                         email: true
+                    },
+                    job_title: {
+                        required: true,
+                    },
+                    headline: {
+                        required: true,
+                    },
+                    phone: {
+                        required: true,
+                        numeric: true,
                     },
                     password: {
                         required: true,

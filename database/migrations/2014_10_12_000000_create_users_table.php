@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('job_title');
             $table->string('headline');
             $table->string('email')->unique();
+            $table->string('phone');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('github_username');
