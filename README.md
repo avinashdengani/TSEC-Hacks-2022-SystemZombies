@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="public/images/logo/logo_with_title.png" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="public/images/logo/logo_with_title.png" width="400" background="#FFF"></a></p>
 
 <h1 align="center"> Codemate - by Team SystemZombies </h1>
 
