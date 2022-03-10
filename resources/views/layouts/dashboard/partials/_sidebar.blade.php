@@ -55,6 +55,27 @@
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Suggested Users</span></a>
         </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <div class="sidebar-heading">
+            Research Blogs
+        </div>
+
+        <!-- Nav Item - Suggested Projects -->
+        <li class="nav-item @if (request()->is('posts/create')) active @endif">
+            <a class="nav-link" href="{{ route('posts.create') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Post a blog</span></a>
+        </li>
+        <!-- Nav Item - Suggested Projects -->
+        <li class="nav-item @if (request()->is('posts')) active @endif">
+            <a class="nav-link" href="{{ route('posts.index') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>View all blogs</span></a>
+        </li>
+
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>

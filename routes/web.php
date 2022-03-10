@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,7 @@ Route::get('/chats', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('posts', PostsController::class);
 
 Route::get('dashboard', function() {
     $user = User::findOrFail(auth()->id());
@@ -41,7 +43,6 @@ Route::get('projects', function() {
     $user = User::findOrFail(auth()->id());
     return view('projects.index', compact(['user']));
 })->name('projects.index')->middleware('auth');
-
 
 Route::get('projects/suggested', function () {
     $user = User::findOrFail(auth()->id());
@@ -61,3 +62,4 @@ Route::get('profile/{user_id}', function ($user_id){
     $user = User::findOrFail($user_id);
     return view('profile.index', compact(['user']));
 })->name('profile.index')->middleware('auth');
+

@@ -60,8 +60,8 @@
           <div class="card-body">
             <h3 class="card-title">Projects</h3>
             <div class="container">
-                <div id="" class="d-flex">
-                    <div class="row" id="projects">
+                <div id="" class="d-flex ">
+                    <div class="row justify-content-between" id="projects">
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                 languagesUsed += `<span class="badge bg-secondary text-white m-1">${language}</span>`;
             });
             $("#projects").append(`
-                <div class="card col-md-3">
+                <div class="card col-md-4 mt-2 mb-2">
                     <div class="">
                         <div class="text-center mt-3">
                             <h3 class="mt-2 mb-0">${repo.name}</h3>

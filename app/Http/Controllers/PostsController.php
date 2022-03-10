@@ -16,7 +16,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::latest('updated_at')->paginate(10);
+        return view('blogs.index', compact(['posts']));
     }
 
     /**
@@ -28,7 +29,7 @@ class PostsController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('posts.create',compact(['categories', 'tags']));
+        return view('blogs.create',compact(['categories', 'tags']));
     }
 
     /**
@@ -42,7 +43,7 @@ class PostsController extends Controller
         if($request->hasFile('image')) {
             $image = $request->file('image')->store('images/posts');
         } else {
-            $image = null;
+            $image = "images/posts/default-blog";
         }
 
         $data =
